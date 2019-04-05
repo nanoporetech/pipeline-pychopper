@@ -1,0 +1,99 @@
+settings:
+  environ:
+    working_directory: .
+    temporary_directory: ''
+    output_directory:  ''
+    custom:
+      Baywatch:
+        name: 'Pychopper'
+        description: 'A workflow to identify full length cDNA reads'
+        fields:
+        - label: Directory with fastq files
+          description: Directory with fastq files
+          path: workflow.data.fastq_dir.path
+          fieldType: directory
+        - label: cDNA primers
+          description: cDNA primers
+          path: workflow.data.primers.path
+          fieldType: string
+          value: ">cDNA|1\nTTTCTGTTGGTGCTGATATTGCTGGG\n>cDNA|2\nAAAAGAAGATAGAGCGACAGGCAAGT"
+        - label: Alignment parameters (match,mismatch,gap_open,gap_extend)
+          description: Alignment parameters (match,mismatch,gap_open,gap_extend)
+          path: workflow.data.aln_params.path
+          fieldType: string
+          value: 1,-1,2,1
+        - label: Number of bases to scan at each end
+          description: Number of bases to scan at each end
+          path: workflow.data.target_length.path
+          fieldType: number
+          value: 200
+        - label: Number of samples when calculating score cutoff
+          description: Number of samples when calculating score cutoff
+          path: workflow.data.sample_size.path
+          fieldType: number
+          value: 100000
+        - label: Score cutoff percentile
+          description: Score cutoff percentile
+          path: workflow.data.score_percentile.path
+          fieldType: number
+          value: 98
+        - label: Use more sensitive (and error prone) heuristic mode
+          description: Use more sensitive (and error prone) heuristic mode
+          path: workflow.data.heu_mode.path
+          fieldType: boolean
+          value: true
+        - label: Stringency in heuristic mode
+          description: Stringency in heuristic mode
+          path: workflow.data.heu_stringency.path
+          fieldType: number
+          value: 0.15
+        - label: Number of threads to use
+          description: Number of threads to use
+          path: workflow.data.threads.path
+          fieldType: number
+          value: 50
+workflow:
+  data:
+    fastq_dir:
+      class: Directory
+      path: ''
+    primers: ">cDNA|1\nTTTCTGTTGGTGCTGATATTGCTGGG\n>cDNA|2\nAAAAGAAGATAGAGCGACAGGCAAGT"
+    aln_params: 1,-1,2,1
+    target_length: 200
+    sample_size: 100000
+    score_percentile: 98
+    heu_mode: true
+    heu_stringency: 0.15
+    threads: 50
+  steps:
+  - Process:
+      name: 'A workflow to identify full length cDNA reads'
+      HostSNK:
+        target: all
+        cores: 5
+        location:
+          class: Directory
+          path: .
+        config_template:
+          class: File
+          path: config.yml
+        inputs:
+        - path: data.fastq_dir
+          confpath: fastq_dir
+          remap: paths
+        - path: data.primers
+          confpath: primers
+        - path: data.aln_params
+          confpath: aln_params
+        - path: data.target_length
+          confpath: target_length
+        - path: data.sample_size
+          confpath: sample_size
+        - path: data.score_percentile
+          confpath: score_percentile
+        - path: data.heu_mode
+          confpath: heu_mode
+        - path: data.heu_stringency
+          confpath: heu_stringency
+        - path: data.threads
+          confpath: threads
