@@ -4,7 +4,7 @@
 Utility pipeline for running pychopper, a tool to identify full length cDNA reads
 =================================================================================
 
-This simple Snakemake pipeline is running [pychopper](https://github.com/nanoporetech/pychopper) (a tool to identify full length cDNA reads) on a directory containing fastq files.
+This simple Snakemake pipeline is running [pychopper](https://github.com/nanoporetech/pychopper) (a tool to identify full length cDNA reads) on a directory containing fastq files. Check out the pychopper repository for more information on these parameters.
 
 Getting Started
 ===============
@@ -22,8 +22,6 @@ The input files and parameters are specified in `config.yml`:
 - `heu_mode` - use heuristic mode if true.
 - `heu_stringency` - stringency in heuristic mode.
 - `threads` - number of threads to use for the analyses.
-
-Check out the [pychopper](https://github.com/nanoporetech/pychopper) repository for more information on these parameters.
 
 ## Output
 

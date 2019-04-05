@@ -29,7 +29,7 @@ rule make_fastq:
     output:
         fastq = "input/reads.fastq"
     shell:"""
-    find -L {input.fqd} -maxdepth 1 -type f  -name "*.fastq" -exec cat {{}} \; > {output.fastq} 
+    find -L {input.fqd} -type f  -name "*.fastq" -exec cat {{}} \; > {output.fastq} 
     """
 
 rule run_pychopper:
