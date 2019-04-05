@@ -4,6 +4,8 @@
 Utility pipeline for running pychopper, a tool to identify full length cDNA reads
 =================================================================================
 
+This simple Snakemake pipeline is running [pychopper](https://github.com/nanoporetech/pychopper) (a tool to identify full length cDNA reads) on a directory containing fastq files.
+
 Getting Started
 ===============
 
@@ -11,11 +13,28 @@ Getting Started
 
 The input files and parameters are specified in `config.yml`:
 
-- `fastq_dir` - directory with the fastq files.
+- `fastq_dir` - directory with the fastq files. The pipeline will concatenate them into a single input fastq file.
+- `primers` - the cDNA primers as a fasta snippet.
+- `aln_params` - pychopper alignment parameters.
+- `target_length` -  number of bases to scan at each end.
+- `sample_size` - number of random samples when calculating score cutoff.
+- `score_percentile` - score cutoff percentile.
+- `heu_mode` - use heuristic mode if true.
+- `heu_stringency` - stringency in heuristic mode.
 - `threads` - number of threads to use for the analyses.
 
+Check out the [pychopper](https://github.com/nanoporetech/pychopper) repository for more information on these parameters.
 
 ## Output
+
+- `output/full_length_reads.fastq` - stranded full length reads.
+- `output/unclassified_reads.fastq`- unclassified reads.
+- `output/pychopper_report.pdf` - report PDF.
+- `output/stats.tsv` - classification statistics.
+- `output/alignment_scores.tsv` - alignment scores.
+- `input/reads.fastq` - concatenated input reads.
+- `input/primers.fas` - input cDNA primers.
+- `versions.txt` - installed software versions.
 
 ## Dependencies
 
