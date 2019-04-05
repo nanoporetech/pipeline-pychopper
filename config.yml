@@ -2,34 +2,41 @@
 ## General pipeline parameters:
 
 # Name of the pipeline:
-pipeline: "pipeline-polya-ng"
+pipeline: "pipeline-pychopper"
 # ABSOLUTE path to directory holding the working directory:
 workdir_top: "Workspaces"
 # Repository URL:
-repo: "https://github.com/nanoporetech/pipeline-polya-ng"
+repo: "https://github.com/nanoporetech/pipeline-pychopper"
 
 ## Pipeline-specific parameters:
 
-# Transcriptome fasta file
-transcriptome: "Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa"
-
-# Directory with FAST5 files
-fast5_dir: "fast5/pass"
-
 # Directory with fastq files
-fastq_dir: "fastq/pass"
+fastq_dir: "/nfs/groups_ech/apps/active/bsipos/data/sirv_e0_1d2_fl"
 
-# Directory with sequencing summary files
-summary_dir: "fastq/pass"
+# cDNA primers
+primers: |
+    >cDNA|1
+    TTTCTGTTGGTGCTGATATTGCTGGG
+    >cDNA|2
+    AAAAGAAGATAGAGCGACAGGCAAGT
 
-# Fasta file containing spike-ins
-spikein_fasta: "spike.fas"
+# Alignment parameters (match,mismatch,gap_open,gap_extend)
+aln_params: "1,-1,2,1"
 
-# Minimum mapping quality
-min_mapping_qual: 5
+# Number of bases to scan at each end
+target_length: 200
 
-# Plot per-transcript plots
-per_transcript_plots: "true"
+# Number of samples when calculating score cutoff
+sample_size: 100000
+
+# Score cutoff percentile
+score_percentile: 98
+
+# Use more sensitive (and error prone) heuristic mode
+heu_mode: "true"
+
+# Stringency in heuristic mode
+heu_stringency: 0.25
 
 # Number of threads to use
 threads: 50
