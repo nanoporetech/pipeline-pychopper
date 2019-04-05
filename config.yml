@@ -14,11 +14,7 @@ repo: "https://github.com/nanoporetech/pipeline-pychopper"
 fastq_dir: "/nfs/groups_ech/apps/active/bsipos/data/sirv_e0_1d2_fl"
 
 # cDNA primers
-primers: |
-    >cDNA|1
-    TTTCTGTTGGTGCTGATATTGCTGGG
-    >cDNA|2
-    AAAAGAAGATAGAGCGACAGGCAAGT
+primers: ">cDNA|1\nTTTCTGTTGGTGCTGATATTGCTGGG\n>cDNA|2\nAAAAGAAGATAGAGCGACAGGCAAGT"
 
 # Alignment parameters (match,mismatch,gap_open,gap_extend)
 aln_params: "1,-1,2,1"
