@@ -18,7 +18,7 @@ include: "snakelib/utils.snake"
 rule dump_versions:
     output:
         ver = "versions.txt"
-    conda: "env.yml"
+    #conda: "env.yml"
     shell:"""
     command -v conda > /dev/null && conda list > {output.ver}
     """
@@ -28,7 +28,6 @@ rule make_fastq:
         fqd = config["fastq_dir"]
     output:
         fastq = "input/reads.fastq"
-    conda: "env.yml"
     shell:"""
     find -L {input.fqd} -maxdepth 1 -type f  -name "*.fastq" -exec cat {{}} \; > {output.fastq} 
     """
@@ -51,7 +50,7 @@ rule run_pychopper:
         heu_mode = config["heu_mode"],
         heu_stringency = config["heu_stringency"],
     threads: config["threads"]
-    conda: "env.yml"
+    #conda: "env.yml"
     shell: """
     X=""
     if [ {params.heu_mode} == "true" ];
