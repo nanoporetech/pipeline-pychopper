@@ -1,0 +1,36 @@
+---
+## General pipeline parameters:
+
+# Name of the pipeline:
+pipeline: "pipeline-polya-ng"
+# ABSOLUTE path to directory holding the working directory:
+workdir_top: "Workspaces"
+# Repository URL:
+repo: "https://github.com/nanoporetech/pipeline-polya-ng"
+
+## Pipeline-specific parameters:
+
+# Transcriptome fasta file
+transcriptome: "Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa"
+
+# Directory with FAST5 files
+fast5_dir: "fast5/pass"
+
+# Directory with fastq files
+fastq_dir: "fastq/pass"
+
+# Directory with sequencing summary files
+summary_dir: "fastq/pass"
+
+# Fasta file containing spike-ins
+spikein_fasta: "spike.fas"
+
+# Minimum mapping quality
+min_mapping_qual: 5
+
+# Plot per-transcript plots
+per_transcript_plots: "true"
+
+# Number of threads to use
+threads: 50
+
