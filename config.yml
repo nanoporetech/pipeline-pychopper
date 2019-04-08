@@ -33,7 +33,3 @@ heu_mode: "true"
 
 # Stringency in heuristic mode
 heu_stringency: 0.15
-
-# Number of threads to use
-threads: 50
-

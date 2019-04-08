@@ -49,7 +49,6 @@ rule run_pychopper:
         score_percentile = config["score_percentile"],
         heu_mode = config["heu_mode"],
         heu_stringency = config["heu_stringency"],
-    threads: config["threads"]
     #conda: "env.yml"
     shell: """
     X=""
@@ -62,7 +61,7 @@ rule run_pychopper:
 
     cdna_classifier.py -b input/primers.fas -g {params.aln_params} -t {params.target_length} \
     -n {params.sample_size} -s {params.score_percentile} -r {output.pdf} -u {output.unclass_fastq} -S {output.stats} \
-    -A {output.scores} $X -l {params.heu_stringency} -T {threads} {input.fastq} {output.out_fastq}
+    -A {output.scores} $X -l {params.heu_stringency} {input.fastq} {output.out_fastq}
     """
 
 rule all:

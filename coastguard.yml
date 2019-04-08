@@ -47,11 +47,6 @@ settings:
           path: workflow.data.heu_stringency.path
           fieldType: number
           value: 0.15
-        - label: Number of threads to use
-          description: Number of threads to use
-          path: workflow.data.threads.path
-          fieldType: number
-          value: 50
 workflow:
   data:
     fastq_dir:
@@ -64,7 +59,6 @@ workflow:
     score_percentile: 98
     heu_mode: true
     heu_stringency: 0.15
-    threads: 50
   steps:
   - Process:
       name: 'A workflow to identify full length cDNA reads'
@@ -95,5 +89,3 @@ workflow:
           confpath: heu_mode
         - path: data.heu_stringency
           confpath: heu_stringency
-        - path: data.threads
-          confpath: threads
