@@ -18,7 +18,7 @@ include: "snakelib/utils.snake"
 rule dump_versions:
     output:
         ver = "versions.txt"
-    #conda: "env.yml"
+    conda: "env.yml"
     shell:"""
     command -v conda > /dev/null && conda list > {output.ver}
     """
@@ -49,7 +49,7 @@ rule run_pychopper:
         score_percentile = config["score_percentile"],
         heu_mode = config["heu_mode"],
         heu_stringency = config["heu_stringency"],
-    #conda: "env.yml"
+    conda: "env.yml"
     shell: """
     X=""
     if [ {params.heu_mode} == "true" ];
