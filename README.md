@@ -4,7 +4,7 @@
 Utility pipeline for running pychopper, a tool to identify full length cDNA reads
 =================================================================================
 
-This simple Snakemake pipeline is running [pychopper](https://github.com/nanoporetech/pychopper) (a tool to identify full length cDNA reads) on a directory containing fastq files. Check out the pychopper repository for more information on these parameters.
+This simple Snakemake pipeline is running pychopper (a tool to identify full length cDNA reads) on a directory containing fastq files. Check out the pychopper repository for more information on these parameters, [here](https://github.com/nanoporetech/pychopper).
 
 Getting Started
 ===============
