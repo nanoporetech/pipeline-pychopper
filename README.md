@@ -21,7 +21,6 @@ The input files and parameters are specified in `config.yml`:
 - `score_percentile` - score cutoff percentile.
 - `heu_mode` - use heuristic mode if true.
 - `heu_stringency` - stringency in heuristic mode.
-- `threads` - number of threads to use for the analyses.
 
 ## Output
 
